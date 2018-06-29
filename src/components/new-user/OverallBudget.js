@@ -5,7 +5,7 @@ export default class OverallBudget extends Component {
   render() {
     return (
       <Text>
-        OverallBudget
+        OverallBudgetNewUser
       </Text>
     );
   }

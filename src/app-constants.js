@@ -1,0 +1,1 @@
+export const SERVER_URL = 'http://167.99.43.177/api/'
