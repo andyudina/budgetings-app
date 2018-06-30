@@ -9,7 +9,7 @@ const BASE_USER_API_URL = SERVER_URL + 'users/'
 
 function receiveUserInfo(json) {
   return {
-    totalBalance: json.total_balance,
+    totalBudget: json.total_budget,
     type: RECEIVE_USER_INFO
   }
 }
@@ -35,6 +35,7 @@ export function getCurrentUser() {
     dispatch(requestUserInfo())
     return fetch(BASE_USER_API_URL + 'anonymous/', {
         credentials: 'include',
+        method: 'post',
       })
       .then(response => {
         if (response.status >= 400) {
