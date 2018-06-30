@@ -1,7 +1,6 @@
 const defaultUser = {
   isFetching: true,
   user: {
-    totalBudget: 0,
     isNew: true
   }
 }
@@ -18,7 +17,6 @@ const user = (state = defaultUser, action) => {
             {},
             state.user,
             {
-              totalBudget: action.totalBudget,
               isNew: action.totalBudget === 0,
             }
           )

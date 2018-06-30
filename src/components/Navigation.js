@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text } from 'react-native';
 import { createSwitchNavigator, createStackNavigator } from 'react-navigation';
-import OverallBudgetNewUser from 'src/components/new-user/OverallBudget';
+import OverallBudgetNewUser from 'src/containers/new-user/OverallBudget';
 import UploadFirstReceipt from 'src/components/new-user/UploadFirstReceipt';
 import OverallBudgetExistingUser from 'src/components/existing-user/OverallBudget';
 import AddCategory from 'src/components/existing-user/AddCategory';
@@ -15,6 +15,8 @@ const NewUserNavigation = createStackNavigator(
   {
     'OverallBudget': OverallBudgetNewUser,
     'UploadFirstReceipt': UploadFirstReceipt,
+    'AddCategory': AddCategory,
+    'EditCategory': EditCategory,
   },
   {
     initialRouteName: 'OverallBudget'
