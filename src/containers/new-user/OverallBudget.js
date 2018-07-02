@@ -10,8 +10,6 @@ const mapStateToProps = (state, ownProps) => {
     isUpdating: state.totalBudget.isUpdating,
     navigateToCategories: state.navigation.navigateToCategories,
     totalBudget: state.totalBudget.amount,
-    // we don't need to use total budget, received from server here
-    // if we are on this view, total budget is 0 (user just created)
   }
 }
 
