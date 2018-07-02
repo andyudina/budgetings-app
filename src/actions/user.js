@@ -2,6 +2,7 @@ import fetch from 'cross-fetch'
 import { SERVER_URL } from 'src/app-constants'
 
 export const RECEIVE_USER_INFO = 'RECEIVE_USER_INFO'
+// Not used now
 export const REQUEST_USER_INFO = 'REQUEST_USER_INFO'
 export const RETRIEVE_CURRENT_USER_FAILED = 'RETRIEVE_CURRENT_USER_FAILED'
 
