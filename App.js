@@ -4,6 +4,8 @@ import configureStore from 'src/configure-store'
 import { getCurrentUser } from 'src/actions/user'
 import Navigation from 'src/containers/Navigation';
 
+// TODO: populate information about budgets, user, categories etc.
+// on first app load
 const store = configureStore()
 store.dispatch(getCurrentUser())
 
