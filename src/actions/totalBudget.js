@@ -1,5 +1,4 @@
 import fetch from 'cross-fetch'
-import { NavigationActions } from 'react-navigation'
 import { SERVER_URL } from 'src/app-constants'
 
 export const TRY_UPDATE_TOTAL_BUDGET = 'TRY_UPDATE_TOTAL_BUDGET'
