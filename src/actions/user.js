@@ -30,6 +30,7 @@ function retrieveUserInfoFailed() {
     type: RETRIEVE_CURRENT_USER_FAILED
   }
 }
+
 export function getCurrentUser() {
   // Retrieve information about current user from server
   return (dispatch) => {

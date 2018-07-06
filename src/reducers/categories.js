@@ -3,7 +3,7 @@ const defaultCategories = {
   categories: [
     // format:
     // {id, name}
-  ]
+  ],
 }
 
 const categories = (state = defaultCategories, action) => {

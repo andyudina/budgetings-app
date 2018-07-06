@@ -1,6 +1,6 @@
 const defaultNavigation = {
   navigateToCategories: false,
-  modifyBudgetInAddCategoryView: false
+  modifyBudgetInEditTotalBudgetView: false
 }
 
 const navigation = (state = defaultNavigation, action) => {
@@ -14,7 +14,7 @@ const navigation = (state = defaultNavigation, action) => {
         {
           navigateToCategories: true,
           // Hide text input on successfull modification
-          modifyBudgetInAddCateoryView: false
+          modifyBudgetInEditTotalBudgetView: false
         })
    // Disable naviation flags
    case 'DISABLE_NAVIGATION_TO_CATEGORIES':

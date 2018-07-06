@@ -11,7 +11,7 @@ export default class OverallBudget extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.navigateToCategories) {
-      this.props.navigation.navigate('AddCategory');
+      this.props.navigation.navigate('EditTotalBudget');
       this.props.disableNavigationToCategories();
     }
   }

@@ -3,8 +3,8 @@ import { Text } from 'react-native';
 import { createSwitchNavigator, createStackNavigator } from 'react-navigation';
 import OverallBudgetNewUser from 'src/containers/new-user/OverallBudget';
 import OverallBudgetExistingUser from 'src/components/existing-user/OverallBudget';
-import AddCategory from 'src/containers/existing-user/AddCategory';
-import EditCategory from 'src/components/existing-user/EditCategory';
+import EditTotalBudget from 'src/containers/existing-user/EditTotalBudget';
+import AddBudget from 'src/containers/existing-user/AddBudget';
 import UploadReceipt from 'src/components/existing-user/UploadReceipt';
 import CategoriseReceipt from 'src/components/existing-user/CategoriseReceipt';
 import UncategorisedReceipts from 'src/components/existing-user/UncategorisedReceipts';
@@ -13,20 +13,20 @@ import UncategorisedReceipts from 'src/components/existing-user/UncategorisedRec
 const NewUserNavigation = createStackNavigator(
   {
     'OverallBudget': OverallBudgetNewUser,
-    'AddCategory': AddCategory,
-    'EditCategory': EditCategory,
+    'EditTotalBudget': EditTotalBudget,
+    'AddBudget': AddBudget,
     'UploadReceipt': UploadReceipt,
   },
   {
-    initialRouteName: 'AddCategory'
+    initialRouteName: 'EditTotalBudget'
   }
 );
 
 const ExistingUserNavigation = createStackNavigator(
   {
     'OverallBudget': OverallBudgetExistingUser,
-    'AddCategory': AddCategory,
-    'EditCategory': EditCategory,
+    'EditTotalBudget': EditTotalBudget,
+    'AddBudget': AddBudget,
     'UploadReceipt': UploadReceipt,
     'CategoriseReceipt': CategoriseReceipt,
     'UncategorisedReceipts': UncategorisedReceipts,
@@ -47,7 +47,7 @@ const Navigation = ({isNewUser}) => {
       }
     },
     {
-      initialRouteName: isNewUser ? 'NewUser' : 'ExistingUser'
+      initialRouteName: isNewUser ? 'NewUser' : 'NewUser'//'ExistingUser'
     }
   );
   return <SwitchNavigation/>;

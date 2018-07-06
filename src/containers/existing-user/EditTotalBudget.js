@@ -1,13 +1,13 @@
 import { connect } from 'react-redux';
 import { setTotalBudget } from 'src/actions/totalBudget';
-import AddCategory from 'src/components/existing-user/AddCategory';
+import EditTotalBudget from 'src/components/existing-user/EditTotalBudget';
 
 
 const mapStateToProps = (state, ownProps) => {
   return {
     formErrors: state.totalBudget.formErrors,
-    modifyBudgetInAddCategoryView: 
-      state.navigation.modifyBudgetInAddCategoryView,
+    modifyBudgetInEditTotalBudgetView: 
+      state.navigation.modifyBudgetInEditTotalBudgetView,
     totalBudget: state.totalBudget.amount,
   }
 }
@@ -19,4 +19,4 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps)(AddCategory);
+  mapDispatchToProps)(EditTotalBudget);

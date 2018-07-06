@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
 import { Button, Text, TextInput, View } from 'react-native';
 
-export default class AddCategory extends Component {
+export default class EditTotalBudget extends Component {
   // we fetch all information in first app load
   // so no extra fetches here
   constructor(props) {
     super(props);
     this.state = {
       totalBudget: this.props.totalBudget,
-      modifyBudget: this.props.modifyBudgetInAddCateoryView,
+      modifyBudget: this.props.modifyBudgetInEditTotalBudgetView,
     };
   }
 
   componentWillReceiveProps(nextProps) {
     this.setState({
-        modifyBudget: nextProps.modifyBudgetInAddCateoryView
+        modifyBudget: nextProps.modifyBudgetInEditTotalBudgetView
     });
   }
 
@@ -49,7 +49,7 @@ export default class AddCategory extends Component {
         </View>}
         <Button
           onPress={() => {
-            this.props.navigation.navigate('EditCategory');
+            this.props.navigation.navigate('AddBudget');
           }}
           title='+ CATEGORY'/>
         <Button
