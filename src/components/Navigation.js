@@ -2,7 +2,7 @@ import React from 'react';
 import { Text } from 'react-native';
 import { createSwitchNavigator, createStackNavigator } from 'react-navigation';
 import OverallBudgetNewUser from 'src/containers/new-user/OverallBudget';
-import OverallBudgetExistingUser from 'src/components/existing-user/OverallBudget';
+import OverallBudgetExistingUser from 'src/containers/existing-user/OverallBudget';
 import EditTotalBudget from 'src/containers/existing-user/EditTotalBudget';
 import AddBudget from 'src/containers/existing-user/AddBudget';
 import UploadReceipt from 'src/components/existing-user/UploadReceipt';
@@ -18,7 +18,7 @@ const NewUserNavigation = createStackNavigator(
     'UploadReceipt': UploadReceipt,
   },
   {
-    initialRouteName: 'EditTotalBudget'
+    initialRouteName: 'OverallBudget'
   }
 );
 
@@ -47,7 +47,7 @@ const Navigation = ({isNewUser}) => {
       }
     },
     {
-      initialRouteName: isNewUser ? 'NewUser' : 'NewUser'//'ExistingUser'
+      initialRouteName: isNewUser ? 'NewUser' : 'ExistingUser'
     }
   );
   return <SwitchNavigation/>;

@@ -6,8 +6,16 @@ export default class AddBudget extends Component {
     super(props);
     this.state = {
       budget: 0,
-      category: this.props.categories[0].id,
+      category: this.props.categories[0] && this.props.categories[0].id,
     };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.categories[0] && 
+        nextProps.categories[0].id &&
+        !this.state.category) {
+        this.state.category = nextProps.categories[0].id
+    }
   }
 
   render() {

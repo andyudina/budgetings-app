@@ -10,3 +10,21 @@ export function _processServerError(errors) {
   }
   return resultErrors;
 }
+
+export function _handleErrors(dispatchErrorsFunction, errors) {
+  if (!errors || 0 === errors.length) {
+    errors = {
+      generalError: 'Unknown error occured'
+    }
+   } else {
+    if (errors === Object(errors)) {
+      // errors are object
+      errors = _processServerError(errors);
+    } else {
+      errors = {
+        generalError: errors
+      }
+    }
+  } 
+  dispatchErrorsFunction(errors)
+}

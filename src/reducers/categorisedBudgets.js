@@ -1,3 +1,15 @@
+const generalFormErrors = {
+  amountError: null,
+  categoryError: null,
+  generalError: null,
+};
+
+const defaultBudgetParams = {
+  formErrors: generalFormErrors,
+  isUpdating: false,
+  modify: false
+};
+
 const defaultCategorisedBudgets = {
   isFetching: false,
   budgets: [
@@ -9,17 +21,42 @@ const defaultCategorisedBudgets = {
     //     'id',
     //     'name',
     //   },
-    //   'totalExpensesInCurrentMonth'
+    //   'totalExpensesInCurrentMonth',
+    //   'formErrors',
+    //   'isUpdating',
+    //   'modify',
     // }
   ],
   newBudget: {
     isCreating: false,
-    formErrors: {
-      amountError: null,
-      categoryError: null,
-      generalError: null,
+    formErrors: Object.assign({}, generalFormErrors)
+  }
+}
+
+const _updateBudgetInArray = (budgets, budgetId, changes) => {
+  var newBudgets = [];
+  for (var budgetIndex in budgets) {
+    var budget = budgets[budgetIndex];
+    if (budget.id === budgetId) {
+      budget = Object.assign(
+        {},
+        budget,
+        changes);
+    }
+    newBudgets.push(budget);
+  }
+  return newBudgets;
+}
+
+const _deleteBudgetInArray = (budgets, budgetId) => {
+  var newBudgets = [];
+  for (var budgetIndex in budgets) {
+    var budget = budgets[budgetIndex];
+    if (budget.id !== budgetId) {
+      newBudgets.push(budget);
     }
   }
+  return newBudgets;
 }
 
 const categorisedBudgets = (state = defaultCategorisedBudgets, action) => {
@@ -28,14 +65,17 @@ const categorisedBudgets = (state = defaultCategorisedBudgets, action) => {
     case 'RECEIVE_CATEGORISED_BUDGETS':
       var budgets = []
       for (var index in action.budgets) {
-        budgets.push({
+        var budget = {
           id: action.budgets[index].id,
           amount: action.budgets[index].amount,
           category: action.budgets[index].category,
           totalExpensesInCurrentMonth: 
             action.budgets[index].total_expenses_in_current_month,
-        });
+        };
+        budget = Object.assign({}, budget, defaultBudgetParams);
+        budgets.push(budget);
       }
+
       return Object.assign(
         {},
         state,
@@ -101,18 +141,20 @@ const categorisedBudgets = (state = defaultCategorisedBudgets, action) => {
       )
 
     case 'BUDGET_CREATED':
+      var newBudget =  {
+        id: action.id,
+        amount: action.amount,
+        category: action.category,
+        totalExpensesInCurrentMonth: 0,
+      };
+      newBudget = Object.assign({}, newBudget, defaultBudgetParams);
       return Object.assign(
         {},
         state,
         {
           budgets: [
             ...state.budgets,
-            {
-              id: action.id,
-              amount: action.amount,
-              category: action.category,
-              totalExpensesInCurrentMonth: 0,
-            }
+            newBudget,
           ],
           newBudget: Object.assign(
             {},
@@ -122,6 +164,116 @@ const categorisedBudgets = (state = defaultCategorisedBudgets, action) => {
               formErrors: defaultCategorisedBudgets.newBudget.formErrors,
             }
           )
+        }
+      )
+
+      // Update categorised budget
+    case 'TRY_UPDATE_BUDGET':
+      return Object.assign(
+        {},
+        state,
+        {
+          budgets: _updateBudgetInArray(
+            state.budgets,
+            action.id,
+            {
+              isUpdating: true,
+            })
+        }
+      )
+
+    case 'BUDGET_UPDATE_FAILED':
+      return Object.assign(
+        {},
+        state,
+        {
+          budgets: _updateBudgetInArray(
+            state.budgets,
+            action.id,
+            {
+              isUpdating: false,
+              formErrors: Object.assign(
+                {},
+                generalFormErrors,
+                action.errors)
+            })
+        }
+      )
+
+    case 'BUDGET_UPDATED':
+      return Object.assign(
+        {},
+        state,
+        {
+          budgets: _updateBudgetInArray(
+            state.budgets,
+            action.id,
+            {
+              amount: action.amount,
+              isUpdating: false,
+              formErrors: generalFormErrors,
+              modify: false,
+            })
+        }
+      )
+
+    // Delete budget
+      // Update categorised budget
+    case 'TRY_DELETE_BUDGET':
+      return Object.assign(
+        {},
+        state,
+        {
+          budgets: _updateBudgetInArray(
+            state.budgets,
+            action.id,
+            {
+              isUpdating: true,
+            })
+        }
+      )
+
+    case 'BUDGET_DELETE_FAILED':
+      return Object.assign(
+        {},
+        state,
+        {
+          budgets: _updateBudgetInArray(
+            state.budgets,
+            action.id,
+            {
+              isUpdating: false,
+              formErrors: Object.assign(
+                {},
+                generalFormErrors,
+                action.errors)
+            })
+        }
+      )
+
+    case 'BUDGET_DELETED':
+      return Object.assign(
+        {},
+        state,
+        {
+          budgets: _deleteBudgetInArray(
+            state.budgets,
+            action.id)
+        }
+      )
+
+    // change layout
+    case 'ENABLE_BUDGET_UPDATE':
+      return Object.assign(
+        {},
+        state,
+        {
+          budgets: _updateBudgetInArray(
+            state.budgets,
+            action.id,
+            {
+              modify: true
+            })
         }
       )
 
