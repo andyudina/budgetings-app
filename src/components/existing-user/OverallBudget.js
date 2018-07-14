@@ -8,7 +8,7 @@ export default class OverallBudget extends Component {
   render() {
     return (
       <View>
-        <TotalBudget/>
+        <TotalBudget showSpentBudget="true"/>
        {
           this.props.budgets.map(
             (budget, i) => {

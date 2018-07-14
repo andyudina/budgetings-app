@@ -4,6 +4,7 @@ const defaultTotalBudget = {
     generalError: undefined
   },
   amount: 0,
+  spent: 0,
   modifyBudget: false
 }
 
@@ -15,6 +16,7 @@ const totalBudget = (state = defaultTotalBudget, action) => {
         state,
         {
           amount: action.totalBudget,
+          spent: action.totalSpentBudget,
         }
       )
     case 'TRY_UPDATE_TOTAL_BUDGET':

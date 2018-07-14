@@ -9,6 +9,7 @@ const mapStateToProps = (state, ownProps) => {
     formErrors: state.totalBudget.formErrors,
     totalBudget: state.totalBudget.amount,
     modifyBudget: state.totalBudget.modifyBudget,
+    spentBudget: state.totalBudget.spent,
   }
 }
 

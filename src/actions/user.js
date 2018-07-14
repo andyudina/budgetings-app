@@ -11,6 +11,7 @@ const BASE_USER_API_URL = SERVER_URL + 'users/'
 function receiveUserInfo(json) {
   return {
     totalBudget: json.total_budget,
+    totalSpentBudget: json.total_spent_budget,
     type: RECEIVE_USER_INFO
   }
 }
