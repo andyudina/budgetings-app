@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { Button, Text, View } from 'react-native';
 import Budget from 'src/containers/common/Budget';
+import TotalBudget from 'src/containers/common/TotalBudget';
 
 export default class OverallBudget extends Component {
+
   render() {
     return (
       <View>
+        <TotalBudget/>
        {
           this.props.budgets.map(
             (budget, i) => {

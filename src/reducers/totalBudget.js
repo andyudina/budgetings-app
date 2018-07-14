@@ -3,7 +3,8 @@ const defaultTotalBudget = {
   formErrors: {
     generalError: undefined
   },
-  amount: 0
+  amount: 0,
+  modifyBudget: false
 }
 
 const totalBudget = (state = defaultTotalBudget, action) => {
@@ -29,6 +30,7 @@ const totalBudget = (state = defaultTotalBudget, action) => {
         state,
         {
           isUpdating: false,
+          modifyBudget: false,
           formErrors: defaultTotalBudget.formErrors,
           amount: action.amount,
         })
@@ -45,6 +47,14 @@ const totalBudget = (state = defaultTotalBudget, action) => {
               generalError: action.error
             }
           )
+        })
+    // Navigation
+    case 'MODIFY_TOTAL_BUDGET':
+      return Object.assign(
+        {},
+        state,
+        {
+          modifyBudget: true
         })
     default:
       return state

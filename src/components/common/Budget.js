@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Picker, Text, TextInput, View } from 'react-native';
+import { Button, Text, TextInput, View } from 'react-native';
 
 export default class Budget extends Component {
   constructor(props) {
@@ -10,7 +10,6 @@ export default class Budget extends Component {
   }
 
   render() {
-    console.log(this.state.budget, this.props.id);
     return (
       <View>
         {!this.props.isUpdating && <View>
