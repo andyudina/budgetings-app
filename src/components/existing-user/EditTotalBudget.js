@@ -17,7 +17,7 @@ export default class EditTotalBudget extends Component {
         <Button
           onPress={
             () => {
-              this.props.navigation.navigate('UploadRecipt');
+              this.props.navigation.navigate('UploadReceipt');
             }
           }
           title='DONE'/>

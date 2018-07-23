@@ -4,6 +4,7 @@ import totalBudget from 'src/reducers/totalBudget';
 import navigation from 'src/reducers/navigation';
 import categories from 'src/reducers/categories';
 import categorisedBudgets from 'src/reducers/categorisedBudgets';
+import receipts from 'src/reducers/receipts';
 
 export default combineReducers({
   user,
@@ -11,4 +12,5 @@ export default combineReducers({
   navigation,
   categories,
   categorisedBudgets,
+  receipts,
 })

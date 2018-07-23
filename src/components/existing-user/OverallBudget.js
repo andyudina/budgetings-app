@@ -16,6 +16,13 @@ export default class OverallBudget extends Component {
             }
         )
       }
+        <Button
+          onPress={
+            () => {
+              this.props.navigation.navigate('UploadReceipt');
+            }
+          }
+          title='Upload'/>
       </View>
     );
   }

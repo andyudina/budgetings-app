@@ -5,7 +5,7 @@ import OverallBudgetNewUser from 'src/containers/new-user/OverallBudget';
 import OverallBudgetExistingUser from 'src/containers/existing-user/OverallBudget';
 import EditTotalBudget from 'src/containers/existing-user/EditTotalBudget';
 import AddBudget from 'src/containers/existing-user/AddBudget';
-import UploadReceipt from 'src/components/existing-user/UploadReceipt';
+import UploadReceipt from 'src/containers/existing-user/UploadReceipt';
 import CategoriseReceipt from 'src/components/existing-user/CategoriseReceipt';
 import UncategorisedReceipts from 'src/components/existing-user/UncategorisedReceipts';
 
