@@ -42,7 +42,7 @@ export function uploadReceipt(photoUri) {
     return fetch(BASE_RECEIPTS_URL, {
       method: 'post',
       credentials: 'include',
-      body: 'data',
+      body: data,
     })
     .then(response => {
       if (response.status >= 400) {

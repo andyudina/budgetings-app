@@ -30,7 +30,6 @@ export default class UploadReceipt extends Component {
   };
 
   render() {
-    console.log(this.state);
     const { hasCameraPermission } = this.state;
     if (hasCameraPermission === null) {
       return <View />;
